@@ -5,7 +5,7 @@ describe('Add movie', function(){
 
   	beforeEach(function(){
   		// Lisää moduulisi nimi tähän
-    	module('MyAwesomeModule');
+    	module('MoviesApp');
 
     	FirebaseServiceMock = (function(){
 			return {
@@ -20,7 +20,7 @@ describe('Add movie', function(){
 	    inject(function($controller, $rootScope) {
 	      scope = $rootScope.$new();
 	      // Muista vaihtaa oikea kontrollerin nimi!
-	      controller = $controller('MyAwesomeController', {
+	      controller = $controller('AddMoviesController', {
 	        $scope: scope,
 	        FirebaseService: FirebaseServiceMock
 	      });

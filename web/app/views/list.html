@@ -1,0 +1,31 @@
+<div ng-app="MoviesApp" ng-controller="ListMoviesController">
+    <h2>Elokuvat</h2>
+    <table style="table-layout: fixed;width:100%;text-align: left">
+        <tr>
+            <th>nimi</th><th>ohjaaja</th><th>julkaisuvuosi</th><th>kuvaus</th>
+        </tr>
+        <tr ng-repeat="movie in movies">
+            <td>{{movie.title}}</td> 
+            <td>{{movie.director}}</td> 
+            <td>{{movie.release}}</td> 
+            <td>{{movie.description}}</td>
+        </tr>
+    </table>
+
+</div>
+
+<a href="#/movies/new">Lisää elokuva</a>
+
+<!-- Hyödyllisiä kirjastoja -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+
+<!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
+<script src="app/app.js"></script>    
+<script src="app/services/firebase_service.js"></script>
+<script src="app/controllers/list_movies_controller.js"></script>
+<script src="app/controllers/add_movies_controller.js"></script>
+

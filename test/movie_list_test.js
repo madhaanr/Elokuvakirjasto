@@ -5,10 +5,26 @@ describe('Movie list', function(){
 
   	beforeEach(function(){
   		// Lisää moduulisi nimi tähän
-    	module('MyAwesomeModule');
+    	module('MoviesApp');
 
     	FirebaseServiceMock = (function(){
+                         var movies = [
+                             {title: "Hi Girls!",
+                              director: "sum guy",
+                              release: 2015,
+                              description: "girls"},
+                             {title: "Girls Girls Girls",
+                              director: "Some other guy",
+                              release: 2012,
+                              description: "girls on beach"}
+                            ];
 			return {
+                            getMovies:function() {
+                                return movies;
+                            },
+                            addMovies:function(movie) {
+                                movies.push(movie);
+                            }
 				// Toteuta FirebaseServicen mockatut metodit tähän
 			}
 		})();
@@ -20,7 +36,7 @@ describe('Movie list', function(){
 	    inject(function($controller, $rootScope) {
 	      scope = $rootScope.$new();
 	      // Muista vaihtaa oikea kontrollerin nimi!
-	      controller = $controller('MyAwesomeController', {
+	      controller = $controller('ListMoviesController', {
 	        $scope: scope,
 	        FirebaseService: FirebaseServiceMock
 	      });
@@ -37,7 +53,9 @@ describe('Movie list', function(){
   	* käyttämällä toBeCalled-oletusta.
   	*/ 
 	it('should list all movies from the Firebase', function(){
-		expect(true).toBe(false);
+		expect(scope.movies.length).toBe(2);
+                expect(scope.messages[0].title).toBe('Hi girls!');
+                expect(scope.messages[1].director).toBe('Some other guy!');
 	});
 
 	/* 

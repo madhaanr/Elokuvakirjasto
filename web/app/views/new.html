@@ -1,0 +1,31 @@
+<div ng-app="MoviesApp" ng-controller="AddMoviesController">
+    <h2>Lisää elokuva</h2>
+    <form name="addForm">
+        <input type="text" placeholder="nimi" ng-model="title" name="mTitle" required/>
+        <input type="text" placeholder="ohjaaja" ng-model="director" name="mDirector" required/>              
+        <input type="text" placeholder="julkaisuvuosi" ng-model="release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/"/>
+        <input type="text" placeholder="kuvaus" ng-model="description" name="mDescription" required/>
+        <input type="submit" ng-click="addMovie()" value="Lisää elokuva" ng-disabled="addForm.$invalid"/>
+        <div ng-show="addForm.mTitle.$dirty">
+            <span ng-show="addForm.mTitle.$error.required">Nimi puuttuu!</span></div>
+        <div ng-show="addForm.mDirector.$dirty">
+            <span ng-show="addForm.mDirector.$error.required">Ohjaaja puuttuu!</span></div>
+        <div ng-show="addForm.mRelease.$dirty && addForm.mRelease.$invalid">
+            <span ng-show="addForm.mRelease.$error.required">Julkaisuvuosi tulee olla välillä 1900-2099!</span></div>
+        <div ng-show="addForm.mDescription.$dirty">
+            <span ng-show="addForm.mDescription.$error.required">Kuvaus puuttuu!</span></div>
+    </form>
+</div>
+
+<!-- Hyödyllisiä kirjastoja -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+
+<!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
+<script src="app/app.js"></script>    
+<script src="app/services/firebase_service.js"></script>
+<script src="app/controllers/list_movies_controller.js"></script>
+<script src="app/controllers/add_movies_controller.js"></script>
