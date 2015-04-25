@@ -6,7 +6,7 @@ MoviesApp.service('FirebaseService', function($firebase) {
     this.getMovies = function() {
         return movies;
     };
-     
+    
     this.addMovies = function(movie) {
         movies.$add(movie);
     };

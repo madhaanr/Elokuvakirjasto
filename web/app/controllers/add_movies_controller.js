@@ -1,17 +1,11 @@
-MoviesApp.controller('AddMoviesController', function ($scope, FirebaseService,$location) {
-   
-    $scope.addMovie = function () {
-        FirebaseService.addMovies({
-            title: $scope.title,
-            director: $scope.director,
-            release: $scope.release,
-            description: $scope.description
-        });     
-        $scope.title="";
-        $scope.director="";
-        $scope.release="";
-        $scope.description="";
-        $scope.addForm.$setPristine();
+MoviesApp.controller('AddMoviesController', function ($scope, FirebaseService, $location) {
+
+    $scope.addMovie = function (movie) {
+        console.log(movie.title+" "+movie.director )
+        if (movie.title !== undefined && movie.director !== undefined && movie.release !== undefined && movie.description !== undefined) {
+            FirebaseService.addMovies(movie);
+        }
         $location.path("/movies");
+
     };
 });

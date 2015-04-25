@@ -1,11 +1,11 @@
 <div ng-app="MoviesApp" ng-controller="AddMoviesController">
     <h2>Lisää elokuva</h2>
     <form name="addForm">
-        <input type="text" placeholder="nimi" ng-model="title" name="mTitle" required/>
-        <input type="text" placeholder="ohjaaja" ng-model="director" name="mDirector" required/>              
-        <input type="text" placeholder="julkaisuvuosi" ng-model="release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/"/>
-        <input type="text" placeholder="kuvaus" ng-model="description" name="mDescription" required/>
-        <input type="submit" ng-click="addMovie()" value="Lisää elokuva" ng-disabled="addForm.$invalid"/>
+        <input type="text" placeholder="nimi" ng-model="movie.title" name="mTitle" required/>
+        <input type="text" placeholder="ohjaaja" ng-model="movie.director" name="mDirector" required/>              
+        <input type="text" placeholder="julkaisuvuosi" ng-model="movie.release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/"/>
+        <input type="text" placeholder="kuvaus" ng-model="movie.description" name="mDescription" required/>
+        <input type="submit" ng-click="addMovie(movie)" value="Lisää elokuva" ng-disabled="addForm.$invalid"/> 
         <div ng-show="addForm.mTitle.$dirty">
             <span ng-show="addForm.mTitle.$error.required">Nimi puuttuu!</span></div>
         <div ng-show="addForm.mDirector.$dirty">
