@@ -1,0 +1,17 @@
+<div ng-app="MoviesApp" ng-controller="EditMovieController">
+    <h2>Elokuvat</h2>
+    <table style="table-layout: fixed;width:100%;text-align: left">
+        <tr>
+            <th>nimi</th><th>ohjaaja</th><th>julkaisuvuosi</th><th>kuvaus</th>
+        </tr>
+        <tr>
+            <td>{{movie.title}}</td> 
+            <td>{{movie.director}}</td> 
+            <td>{{movie.release}}</td> 
+            <td>{{movie.description}}</td>
+        </tr>
+    </table>
+
+</div>
+
+<a href="#/movies/new">Lisää elokuva</a>
