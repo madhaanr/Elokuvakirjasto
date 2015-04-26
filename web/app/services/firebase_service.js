@@ -11,7 +11,7 @@ MoviesApp.service('FirebaseService', function($firebase) {
         movies.$add(movie);
     };
     
-    this.editMovies = function(movie) {
+    this.editMovie = function(movie) {
         movies.$save(movie);
     };
     

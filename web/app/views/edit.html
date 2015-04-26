@@ -1,17 +1,22 @@
 <div ng-app="MoviesApp" ng-controller="EditMovieController">
-    <h2>Elokuvat</h2>
-    <table style="table-layout: fixed;width:100%;text-align: left">
-        <tr>
-            <th>nimi</th><th>ohjaaja</th><th>julkaisuvuosi</th><th>kuvaus</th>
-        </tr>
-        <tr>
-            <td>{{movie.title}}</td> 
-            <td>{{movie.director}}</td> 
-            <td>{{movie.release}}</td> 
-            <td>{{movie.description}}</td>
-        </tr>
-    </table>
-
+    <h2>Muokkaa elokuvaa</h2>  
+    <form name="editForm">
+        <label>nimi</label> 
+        <input type="text" ng-model="movie.title" name="mTitle" required>
+        <label>ohjaaja</label> 
+        <input type="text" ng-model="movie.director" name="mDirector" required> 
+        <label>vuosi</label> 
+        <input type="text" ng-model="movie.release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/">    
+        <label>kuvaus</label> 
+        <input type="text" ng-model="movie.description" name="mDescription" required>
+        <input type="submit" value="Muokkaa" ng-click="editMovie(movie)" ng-disabled="editForm.$invalid">
+        <div ng-show="editForm.mTitle.$dirty">
+            <span ng-show="editForm.mTitle.$error.required">Nimi puuttuu!</span></div>
+        <div ng-show="editForm.mDirector.$dirty">
+            <span ng-show="editForm.mDirector.$error.required">Ohjaaja puuttuu!</span></div>
+        <div ng-show="editForm.mRelease.$dirty && editForm.mRelease.$invalid">
+            <span ng-show="editForm.mRelease.$error.required">Julkaisuvuosi tulee olla välillä 1900-2099!</span></div>
+        <div ng-show="editForm.mDescription.$dirty">
+            <span ng-show="editForm.mDescription.$error.required">Kuvaus puuttuu!</span></div>
+    </form>
 </div>
-
-<a href="#/movies/new">Lisää elokuva</a>
