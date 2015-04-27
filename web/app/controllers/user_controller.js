@@ -13,7 +13,7 @@ MoviesApp.controller('UserController', function($scope, $location, Authenticatio
   $scope.register = function(){
     AuthenticationService.createUser($scope.newEmail, $scope.newPassword)
     .then(function(){
-      AuthenticationService.logUserIn($scope.newEmail, $sopce.newPassword)
+      AuthenticationService.logUserIn($scope.newEmail, $scope.newPassword)
       .then(function(){
         $location.path('/movies');
       });

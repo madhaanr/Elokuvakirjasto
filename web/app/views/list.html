@@ -31,10 +31,13 @@
             <td><a ng-href="#/movies/{{movie.$id}}">{{movie.title}}</a></td> 
             <td>{{movie.director}}</td> 
             <td>{{movie.release}}</td> 
-            <td><input type="submit" value="Delete" ng-click="removeMovie(movie)" /></td>
+            <td><input type="submit" value="Delete" ng-show="userLoggedIn()" ng-click="removeMovie(movie)" /></td>
         </tr>
     </table>
     </div>
+    <br>
+    <a href="#/movies/new">Lisää elokuva</a>
 </div>
 
-<a href="#/movies/new">Lisää elokuva</a>
+
+

@@ -1,0 +1,16 @@
+<div ng-app="MoviesApp" ng-controller="UserController">
+    <h2>Kirjaudu sisään</h2>
+    <label>Sähköpostiosoite</label>
+    <input type="text" ng-model="email">
+    <label>salasana</label>
+    <input type="password" ng-model="password">
+    <input type="submit" value="Kirjaudu" ng-click="logIn()">
+    
+    <h2>Rekisteröidy</h2>
+    <label>Sähköpostiosoite</label>
+    <input type="text" ng-model="newEmail">
+    <label>salasana</label>
+    <input type="password" ng-model="newPassword">
+    <input type="submit" value="Rekisteröidy" ng-click="register()">
+    <h3>{{message}}</h3>
+</div>
