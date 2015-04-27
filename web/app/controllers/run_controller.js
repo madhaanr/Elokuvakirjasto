@@ -4,4 +4,5 @@ MoviesApp.run(function (AuthenticationService, $rootScope) {
     };
 
     $rootScope.userLoggedIn = AuthenticationService.getUserLoggedIn();
+
 });
