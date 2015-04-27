@@ -22,7 +22,7 @@ describe('Show movie', function () {
         })();
         RouteParamsMock = (function () {
             return {
-                key: 'abc123'
+                KEY: 'abc123'
             }
         })();
         // Lisää vakoilijat
@@ -35,7 +35,7 @@ describe('Show movie', function () {
             controller = $controller('ShowMovieController', {
                 $scope: scope,
                 FirebaseService: FirebaseServiceMock,
-                $routePrams: RouteParamsMock
+                $routeParams: RouteParamsMock
             });
         });
     });
@@ -49,12 +49,9 @@ describe('Show movie', function () {
      * käyttämällä toBeCalled-oletusta.
      */
     it('should show current movie from Firebase', function () {
-        
-        scope.RouteParamsMock;
-       
-        scope.getMovie();
-        var m = FirebaseServiceMock.getMovie;
-        console.log("hei"+m.name+"moro");
+         
+        expect(scope.movie.name).toBe('Joku leffa');
+        expect(scope.movie.director).toBe('Kalle Ilves');
         expect(FirebaseServiceMock.getMovie).toHaveBeenCalled();
     });
 });

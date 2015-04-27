@@ -2,14 +2,14 @@
     <h2>Muokkaa elokuvaa</h2>  
     <form name="editForm">
         <label>nimi</label> 
-        <input type="text" ng-model="movie.title" name="mTitle" required>
+        <input type="text" ng-model="editedMovie.title" name="mTitle" required>
         <label>ohjaaja</label> 
-        <input type="text" ng-model="movie.director" name="mDirector" required> 
+        <input type="text" ng-model="editedMovie.director" name="mDirector" required> 
         <label>vuosi</label> 
-        <input type="text" ng-model="movie.release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/">    
+        <input type="text" ng-model="editedMovie.release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/">    
         <label>kuvaus</label> 
-        <input type="text" ng-model="movie.description" name="mDescription" required>
-        <input type="submit" value="Muokkaa" ng-click="editMovie(movie)" ng-disabled="editForm.$invalid">
+        <input type="text" ng-model="editedMovie.description" name="mDescription" required>
+        <input type="submit" value="Muokkaa" ng-click="editMovie(editedMovie)" ng-disabled="editForm.$invalid">
         <div ng-show="editForm.mTitle.$dirty">
             <span ng-show="editForm.mTitle.$error.required">Nimi puuttuu!</span></div>
         <div ng-show="editForm.mDirector.$dirty">
