@@ -18,17 +18,13 @@ describe('Edit movie', function () {
                         done(null);
                     }
                 },
-                editMovie: function (movie) {        
+                editMovie: function (mov) {        
                     var mov={
                             name: 'Joku leffa',
                             director: 'Kalle Ilves',
                             release: 2015,
                             description: 'Mahtava leffa!'
                         }                             
-                    mov.name = movie.name;
-                    mov.director = movie.director;
-                    mov.release = movie.release;
-                    mov.description=movie.description;
                     return mov;
                 }
             }
@@ -72,9 +68,7 @@ describe('Edit movie', function () {
      * käyttämällä toBeCalled-oletusta.
      */
     it('should be able to edit a movie by its name, director, release date and description', function () {
-//        scope.movie.name='Lord of the Rings';
-//        scope.movie.release=2000;
-//        scope.movie.description='One to rule them all...';
+        expect(scope.movie.name).toBe('Joku leffa');
         scope.movie = {name: 'Lord of the Rings', director: "Mm", release: 2000, description: 'One to rule them all...'};
         scope.editMovie(scope.movie);
         expect(scope.movie.name).toBe('Lord of the Rings');
@@ -90,6 +84,7 @@ describe('Edit movie', function () {
      */
     it('should not be able to edit a movie if its name, director, release date or description is empty', function () {
         scope.movie = {name: 'Lord of the Rings', director: "Mm", release: 2000, description: 'One to rule them all...'};
+        expect(scope.movie.name).toBe('Lord of the Rings');
         scope.editedMovie = {name: '', director: '', release: '', description: ''};
         scope.editMovie(scope.editedMovie);
         expect(scope.movie.name).toBe('Lord of the Rings');

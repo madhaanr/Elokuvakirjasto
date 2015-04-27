@@ -22,3 +22,6 @@ MoviesApp.config(function ($routeProvider) {
                 templateUrl: "app/views/edit.html"
             });
 });
+MoviesApp.config(['$httpProvider', function($httpProvider) {
+    delete $httpProvider.defaults.headers.common["X-Requested-With"]    
+}]);
