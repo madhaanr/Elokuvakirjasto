@@ -9,7 +9,7 @@
         <input type="text" ng-model="editedMovie.release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/">    
         <label>kuvaus</label> 
         <input type="text" ng-model="editedMovie.description" name="mDescription" required>
-        <input type="submit" value="Muokkaa" ng-click="editMovie(editedMovie)" ng-disabled="editForm.$invalid">
+        <input type="submit" value="Muokkaa" ng-click="editMovie()" ng-disabled="editForm.$invalid">
         <div ng-show="editForm.mTitle.$dirty">
             <span ng-show="editForm.mTitle.$error.required">Nimi puuttuu!</span></div>
         <div ng-show="editForm.mDirector.$dirty">
