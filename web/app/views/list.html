@@ -1,49 +1,47 @@
 <div ng-app="MoviesApp" ng-controller="ListMoviesController">
     <div>
-    <h2>Hae elokuvia</h2>
-    <form>
-        <div class="form-group">
-    <label>Nimi</label>
-    <input type="text" class="form-control" ng-model="name">
-    <label>Julkaisuvuosi</label>
-    <input type="text" class="form-control" ng-model="year">
-    <input type="submit" value="Hae" class="btn btn-primary" ng-click="findMovies()">
+        <h2>Hae elokuvia</h2>
+        <form>
+            <div class="form-group">
+                <label>Nimi</label>
+                <input type="text" class="form-control" ng-model="name">
+                <label>Julkaisuvuosi</label>
+                <input type="text" class="form-control" ng-model="year">
+                <input type="submit" value="Hae" class="btn btn-primary" ng-click="findMovies()">
+            </div>
+        </form>
+        <div  class="table-responsive">
+            <table ng-show="show" class="table">
+                <tr><th>Nimi</th><th>Julkaisuvuosi</th></tr>
+                <tr ng-repeat="mov in dbMovies">
+                    <td><a href='http://www.imdb.com/title/{{mov.imdbID}}'>{{mov.Title}}</a></td><td>{{mov.Year}}</td>
+                </tr>
+            </table>
         </div>
-    </form>
-    <div  class="table-responsive">
-    <table ng-show="show" class="table">
-        <tr><th>Nimi</th><th>Julkaisuvuosi</th></tr>
-        <tr ng-repeat="mov in dbMovies">
-            <td><a href='http://www.imdb.com/title/{{mov.imdbID}}'>{{mov.Title}}</a></td><td>{{mov.Year}}</td>
-        </tr>
-    </table>
-    </div>
-    <div>
-        <h3><span ng-pluralize count="dbMoviesCount" 
-                  when="{'0': 'Hakusanalla ei löytynyt elokuvia',
-                         'one': 'Haulla löytyi yksi elokuva',
-                         'other': 'Haulla löytyi {} elokuvaa'}">
-            </span></h3>
-    </div>
-    
-    <div>
-    <h2>Elokuvat</h2>
-    <div  class="table-responsive">
-    <table class="table">
-        <tr>
-            <th>Nimi</th><th>Ohjaaja</th><th>Julkaisuvuosi</th><th></th>
-        </tr>
-        <tr ng-repeat="movie in movies">
-            <td><a ng-href="#/movies/{{movie.$id}}">{{movie.title}}</a></td> 
-            <td>{{movie.director}}</td> 
-            <td>{{movie.release}}</td> 
-            <td><input type="submit" class="btn btn-primary" value="Poista" ng-if="userLoggedIn" ng-click="removeMovie(movie)" /></td>
-        </tr>
-    </table>
-    </div>
-    <br>
-    <a class="btn btn-primary" href="#/movies/new">Lisää elokuva</a>
-</div>
+        <div>
+            <h3><span ng-pluralize count="dbMoviesCount" 
+                      when="{'0': 'Hakusanalla ei löytynyt elokuvia',
+                      'one': 'Haulla löytyi yksi elokuva',
+                      'other': 'Haulla löytyi {} elokuvaa'}">
+                </span></h3>
+        </div>
 
-
-
+        <div>
+            <h2>Elokuvat</h2>
+            <div  class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Nimi</th><th>Ohjaaja</th><th>Julkaisuvuosi</th><th></th>
+                    </tr>
+                    <tr ng-repeat="movie in movies">
+                        <td><a ng-href="#/movies/{{movie.$id}}">{{movie.title}}</a></td> 
+                        <td>{{movie.director}}</td> 
+                        <td>{{movie.release}}</td> 
+                        <td><input type="submit" class="btn btn-primary" value="Poista" ng-if="userLoggedIn" ng-click="removeMovie(movie)"/></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <a class="btn btn-primary" href="#/movies/new">Lisää elokuva</a>
+        </div>
+    </div>
