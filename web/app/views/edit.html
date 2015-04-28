@@ -1,22 +1,25 @@
 <div ng-app="MoviesApp" ng-controller="EditMovieController">
-    <h2>Muokkaa elokuvaa</h2>  
+    <h2>Muokkaa elokuvaa</h2>
+
     <form name="editForm">
-        <label>nimi</label> 
-        <input type="text" ng-model="editedMovie.title" name="mTitle" required>
-        <label>ohjaaja</label> 
-        <input type="text" ng-model="editedMovie.director" name="mDirector" required> 
-        <label>vuosi</label> 
-        <input type="text" ng-model="editedMovie.release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/">    
-        <label>kuvaus</label> 
-        <input type="text" ng-model="editedMovie.description" name="mDescription" required>
-        <input type="submit" value="Muokkaa" ng-click="editMovie()" ng-disabled="editForm.$invalid">
-        <div ng-show="editForm.mTitle.$dirty">
-            <span ng-show="editForm.mTitle.$error.required">Nimi puuttuu!</span></div>
-        <div ng-show="editForm.mDirector.$dirty">
-            <span ng-show="editForm.mDirector.$error.required">Ohjaaja puuttuu!</span></div>
-        <div ng-show="editForm.mRelease.$dirty && editForm.mRelease.$invalid">
-            <span ng-show="editForm.mRelease.$error.required">Julkaisuvuosi tulee olla välillä 1900-2099!</span></div>
-        <div ng-show="editForm.mDescription.$dirty">
-            <span ng-show="editForm.mDescription.$error.required">Kuvaus puuttuu!</span></div>
+        <div class="form-group">
+            <label>Nimi</label> 
+            <input type="text" class="form-control" ng-model="editedMovie.title" name="mTitle" required>
+            <label>Ohjaaja</label> 
+            <input type="text" class="form-control" ng-model="editedMovie.director" name="mDirector" required> 
+            <label>Julkaisuvuosi</label> 
+            <input type="text" class="form-control" ng-model="editedMovie.release" name="mRelease" required ng-pattern="/^(19|20)\d{2}$/">    
+            <label>Kuvaus</label> 
+            <textarea class="form-control" ng-model="editedMovie.description" name="mDescription" required></textarea>
+            <input type="submit" value="Muokkaa" class="btn btn-primary" ng-click="editMovie()" ng-disabled="editForm.$invalid">
+            <div ng-show="editForm.mTitle.$dirty">
+                <span ng-show="editForm.mTitle.$error.required">Nimi puuttuu!</span></div>
+            <div ng-show="editForm.mDirector.$dirty">
+                <span ng-show="editForm.mDirector.$error.required">Ohjaaja puuttuu!</span></div>
+            <div ng-show="editForm.mRelease.$dirty && editForm.mRelease.$invalid">
+                <span ng-show="editForm.mRelease.$error.required">Julkaisuvuosi tulee olla välillä 1900-2099!</span></div>
+            <div ng-show="editForm.mDescription.$dirty">
+                <span ng-show="editForm.mDescription.$error.required">Kuvaus puuttuu!</span></div>
+        </div>
     </form>
 </div>

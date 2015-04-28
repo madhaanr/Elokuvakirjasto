@@ -1,16 +1,12 @@
 <div ng-app="MoviesApp" ng-controller="ShowMovieController">
-    <h2>Elokuva</h2>
-    <table style="table-layout: fixed;width:100%;text-align: left">
-        <tr>
-            <th>nimi</th><th>ohjaaja</th><th>julkaisuvuosi</th><th>kuvaus</th>
-        </tr>
-        <tr>
-            <td>{{movie.title}}</td> 
-            <td>{{movie.director}}</td> 
-            <td>{{movie.release}}</td> 
-            <td>{{movie.description}}</td>
-        </tr>
-        
-    </table>
-<a ng-href="#/movies/{{movie.$id}}/edit">Elokuvan muokkaus</a>
+    <h2>{{movie.title}}</h2>
+
+    <ul>
+        <li><b>Ohjaaja:</b> {{movie.director}}</li>
+        <li><b>Julkaisuvuosi:</b> {{movie.release}}</li>
+       
+    </ul>
+    <p>{{movie.description}}</p>
+
+    <a ng-href="#/movies/{{movie.$id}}/edit">Elokuvan muokkaus</a>
 </div>

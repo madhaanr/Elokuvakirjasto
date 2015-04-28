@@ -4,17 +4,23 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.2-dist/css/bootstrap.min.css">
         <title>Elokuvakirjasto</title>
     </head>
     <body ng-app="MoviesApp">
-        <a ng-if="!userLoggedIn" href="#/login">Kirjaudu sisään</a>
-        <button ng-click="logOut()" ng-if="userLoggedIn">Kirjaudu ulos</button>
-        <h1>Elokuvakirjasto</h1>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <h4 class="navbar-text navbar-left">Elokuvakirjasto</h4>
+                <a class="navbar-text navbar-left" href="#/movies">Elokuvat</a>
+                <a style="margin-top: 8px;" class="btn btn-default navbar-right" ng-if="!userLoggedIn" href="#/login">Kirjaudu sisään</a>
+                <button style="margin-top: 8px;" class="btn btn-default navbar-right" ng-click="logOut()" ng-if="userLoggedIn">Kirjaudu ulos</button>
+            </div>
+        </nav>
         <div ng-view>
-       
+
         </div>
 
-        
+
         <!-- Hyödyllisiä kirjastoja -->
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -32,6 +38,8 @@
         <script src="app/controllers/show_movie_controller.js"></script>
         <script src="app/controllers/edit_movie_controller.js"></script>
         <script src="app/controllers/user_controller.js"></script> 
-        <script src="app/controllers/run.js"></script> 
+        <script src="app/controllers/run.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
     </body>
 </html>
