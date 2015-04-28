@@ -16,7 +16,7 @@ MoviesApp.controller('UserController', function ($scope, $location, Authenticati
                 .then(function () {
                     AuthenticationService.logUserIn($scope.newEmail, $scope.newPassword)
                             .then(function () {
-                                $rootScope.userLoggedIn = AuthenticationService.getUserLoggedIn();
+                                $rootScope.userLoggedIn =  AuthenticationService.getUserLoggedIn();
                                 $location.path('/movies');
                             });
                 })
