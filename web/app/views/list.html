@@ -31,7 +31,7 @@
             <td><a ng-href="#/movies/{{movie.$id}}">{{movie.title}}</a></td> 
             <td>{{movie.director}}</td> 
             <td>{{movie.release}}</td> 
-            <td><input type="submit" value="Delete" ng-if="!userLoggedIn" ng-click="removeMovie(movie)" /></td>
+            <td><input type="submit" value="Delete" ng-if="userLoggedIn" ng-click="removeMovie(movie)" /></td>
         </tr>
     </table>
     </div>
