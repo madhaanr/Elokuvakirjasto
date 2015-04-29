@@ -13,11 +13,6 @@ MoviesApp.config(function ($routeProvider) {
             .when('/movies', {
                 controller: "ListMoviesController",
                 templateUrl: "app/views/list.html",
-                resolve: {
-                    currentAuth: function (AuthenticationService) {
-                        return AuthenticationService.checkLoggedIn();
-                    }
-                }
             })
             .when('/movies/new', {
                 controller: "AddMoviesController",
@@ -45,6 +40,10 @@ MoviesApp.config(function ($routeProvider) {
                         return AuthenticationService.checkLoggedIn();
                     }
                 }
+            })
+            .otherwise('/', {
+                controller: "ListMoviesController",
+                templateUrl: "app/views/list.html"
             });
 });
 MoviesApp.config(['$httpProvider', function ($httpProvider) {
