@@ -23,7 +23,7 @@ describe('Movie list', function () {
                     return movies;
                 },
                 removeMovie: function (index) {
-                     movies.splice(index,1);
+                    movies.splice(index, 1);
                 }
 
                 // Toteuta FirebaseServicen mockatut metodit tähän

@@ -10,7 +10,12 @@ MoviesApp.controller('ListMoviesController', function ($scope, FirebaseService, 
         $scope.show=true;
         APIService.findMovies($scope.name,$scope.year).success(function (dbMovies) {
             $scope.dbMovies = dbMovies.Search;
-            $scope.dbMoviesCount=dbMovies.Search.length;
+            if($scope.dbMovies!== undefined) {
+                $scope.dbMoviesCount=dbMovies.Search.length;
+            }
+            else {
+                $scope.dbMoviesCount=0;
+            }
         });
     };
 });
